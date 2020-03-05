@@ -1,5 +1,8 @@
 printf "\n\n\t\t\twritten by: Animesh Sinha\n\n\t\t\tgithub: animesh-h\n\n\n"
 echo -n "WARNING: THIS SCRIPT IS FOR KNOWLEDGE PURPOSE SO PLEASE DON'T USE IT ILLEGALY"
+count=0
+while [ $count -eq 0 ]
+do
 printf "\n\nEnter the type of os for which you want to create payload" 
 printf "\n\n1.android\n2.windows\n3.mac os\n"
 read n
@@ -63,12 +66,16 @@ printf "\n1.try again\n2.exit\n"
 read op
 case $op in
 1)
+count=0
 ;;
 2)
+count=1
 exit
 ;;
 *)
+count=1
 exit
 ;;
 esac
 esac
+done
