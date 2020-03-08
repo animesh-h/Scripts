@@ -1,3 +1,13 @@
+function ping_chk
+{
+ping=`ping -c 1 $i_p | grep bytes | wc -l`
+if [ "$ping" -gt 1 ]
+then
+echo "host active"
+else
+echo "host inactive"
+fi
+}
 printf "$(tput setaf 1)\n\n\t\t\tWritten By: Animesh Sinha\n\n\t\t\tGithub: animesh-h\n\n\n$(tput setab 7)"
 sleep 1
 echo -n "$(tput setaf 1)WARNING: THIS SCRIPT IS FOR KNOWLEDGE PURPOSE SO PLEASE DON'T USE IT ILLEGALY"
@@ -22,6 +32,8 @@ case $x in
         sleep 0.5
         printf "enter your ip: "
         read i_p
+        echo "checking you ip active or inactive---"
+        ping_chk
         printf "\nenter port: "
         read p
         printf "\nenter name of apk: "
@@ -33,6 +45,8 @@ case $x in
         sleep 0.5
         printf "\nenter your ip: "
         read i_p
+        echo "checking you ip active or inactive---"
+        ping_chk
         printf "\nenter port: "
         read p
         printf "\nenter name of apk: "
@@ -46,6 +60,8 @@ case $x in
         sleep 0.5
         printf "\nenter your ip: "
         read i_p
+        echo "checking you ip active or inactive---"
+        ping_chk
         printf "\nenter port: "
         read p
         printf "\nenter name of apk: "
@@ -60,6 +76,8 @@ case $x in
         sleep 0.5
         printf "enter your ip: "
         read i_p
+        echo "checking you ip active or inactive---"
+        ping_chk
         printf "\nenter port: "
         read p
         printf "\nenter name of exe: "
