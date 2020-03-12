@@ -4,8 +4,12 @@ ping=`ping -c 1 $i_p | grep bytes | wc -l`
 if [ "$ping" -gt 1 ]
 then
 echo "host active"
+printf "\n now you can proceed: "
 else
 echo "host inactive"
+printf "\nthis will not work  try diffrent: "
+read i_p
+ping_chk
 fi
 }
 printf "$(tput setaf 1)\n\n\t\t\tWritten By: Animesh Sinha\n\n\t\t\tGithub: animesh-h\n\n\n$(tput setab 7)"
